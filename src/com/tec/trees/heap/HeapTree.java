@@ -1,4 +1,4 @@
-package com.tec.trees;
+package com.tec.trees.heap;
 import java.util.*;
 
 class BinaryHeap {
@@ -23,7 +23,7 @@ class BinaryHeap {
         return heapSize == heap.length;
     }
 
-    //return parent
+    //retorna el padre del valor dado
     private int parent(int i){
         return (i-1)/d;
     }

@@ -1,5 +1,8 @@
-package com.tec.trees;
+package com.tec.trees.heap;
 
+/**
+ * The minimum number is the root
+ */
 
 public class Min_Heap {
     private int[] HeapArray;
@@ -86,12 +89,13 @@ public class Min_Heap {
 
     // Function to print the contents of the heap
     public void display()  {
-        System.out.println("PARENT NODE" + "\t" + "LEFT NODE" + "\t" + "RIGHT NODE");
+
+        /*System.out.println("PARENT NODE" + "\t" + "LEFT NODE" + "\t" + "RIGHT NODE");
         for (int i = 1; i <= size / 2; i++) {
             System.out.print(" " + HeapArray[i] + "\t\t" + HeapArray[2 * i]
                     + "\t\t" + HeapArray[2 * i + 1]);
             System.out.println();
-        }
+        }*/
     }
 
     // build min heap

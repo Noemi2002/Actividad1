@@ -1,6 +1,4 @@
-package com.tec.trees;
-
-import java.util.ArrayList;
+package com.tec.trees.heap;
 
 public class Main {
 
@@ -18,7 +16,7 @@ public class Main {
 
         // Min
         //construct a min heap from given data
-        /*System.out.println("The Min Heap is ");
+        System.out.println("The Min Heap is ");
         Min_Heap minHeap = new Min_Heap(7);
         minHeap.insert(12);
         minHeap.insert(15);
@@ -27,15 +25,14 @@ public class Main {
         minHeap.insert(50);
         minHeap.insert(90);
         minHeap.insert(45);
-
         minHeap.minHeap();
         //display the min heap contents
         minHeap.display();
         //display root node of the min heap
-        System.out.println("The Min val(root node):" + minHeap.remove());*/
+        System.out.println("The Min val(root node):" + minHeap.remove());
 
         //Max
-        ArrayList<Integer> array = new ArrayList<Integer>();
+        /*ArrayList<Integer> array = new ArrayList<Integer>();
         int size = array.size();
         Max_Heap h = new Max_Heap();
         h.insert(array, 3);
@@ -47,7 +44,7 @@ public class Main {
         h.printArray(array, size);
         h.deleteNode(array, 4);
         System.out.println("After deleting an element: ");
-        h.printArray(array, size);
+        h.printArray(array, size);*/
     }
 
 

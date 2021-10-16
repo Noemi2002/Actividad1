@@ -1,7 +1,7 @@
-package com.tec.trees;
+package com.tec.trees.heap;
 
 import java.util.ArrayList;
-class Max_Heap {
+public class Max_Heap {
     void heapify(ArrayList<Integer> hT, int i) {
         int size = hT.size();
         int largest = i;
@@ -21,7 +21,7 @@ class Max_Heap {
         }
     }
 
-    void insert(ArrayList<Integer> hT, int newNum) {
+    public void insert(ArrayList<Integer> hT, int newNum) {
         int size = hT.size();
         if (size == 0) {
             hT.add(newNum);
@@ -51,7 +51,7 @@ class Max_Heap {
         }
     }
 
-    void printArray(ArrayList<Integer> array, int size) {
+    public void printArray(ArrayList<Integer> array, int size) {
         for (Integer i : array) {
             System.out.print(i + " ");
         }
