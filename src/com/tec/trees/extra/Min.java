@@ -7,8 +7,10 @@ public class Min {
     private int maxSize;
 
     public Min(int size){
-        this.maxSize = size;
+        this.size = size;
         this.size = 0;
+        MinHeap = new int[this.size + 1];
+        MinHeap[0] = Integer.MIN_VALUE;
 
     }
 
@@ -105,7 +107,7 @@ public class Min {
     }
 
     public void printTree()  {
-        System.out.println("PARENT1" + "\t" + "LEFT1" + "\t" + "RIGHT1");
+        System.out.println("PARENT" + "\t" + "LEFT" + "\t" + "RIGHT");
         for (int i = 1; i <= size / 2; i++) {
             System.out.print(" " + MinHeap[i] + "\t\t" + MinHeap[2 * i]
                     + "\t\t" + MinHeap[2 * i + 1]);
@@ -117,4 +119,3 @@ public class Min {
 
 
 }
-
