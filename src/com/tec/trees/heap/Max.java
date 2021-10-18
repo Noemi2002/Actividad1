@@ -25,11 +25,7 @@ public class Max {
 
     //Return parent position for the node we´re asking for
     private int getParent(int i) {
-        if (i > 0) { //If the parent is not the root
-            return (int) Math.floor((i - 1) / 2);
-        } else {
-            return Integer.MAX_VALUE; //return tree root
-        }
+            return i /2;
     }
 
     //Return left child position
@@ -52,11 +48,11 @@ public class Max {
     }
 
     //swap nodes from their positions
-    private void swapNodes(int one, int two){
+    private void swap(int one, int two){
         int tmp;
-        tmp = MaxHeap[one];
-        MaxHeap[one] = MaxHeap[two];
-        MaxHeap[two] = tmp;
+        tmp = MaxHeap[two];
+        MaxHeap[two] = MaxHeap[one];
+        MaxHeap[one] = tmp;
     }
 
     //Maintain the property order during inserting new numbers
@@ -64,17 +60,17 @@ public class Max {
 
         // check if the node is non-leaf and greater than its child
         if (!isMaxLeaf(i)) {
-            if (MaxHeap[i] < MaxHeap[leftChild(i)] || MaxHeap[i] < MaxHeap[rightChild(i)]) {
+            if (MaxHeap[i] > MaxHeap[leftChild(i)] || MaxHeap[i] > MaxHeap[rightChild(i)]) {
 
                 // swap with left child and then organize the left child
-                if (MaxHeap[leftChild(i)] > MaxHeap[rightChild(i)]) {
-                    swapNodes(i, leftChild(i));
+                if (MaxHeap[leftChild(i)] < MaxHeap[rightChild(i)]) {
+                    swap(i, leftChild(i));
                     organize(leftChild(i));
                 }
 
                 // Swap with the right child and organize the right child
                 else {
-                    swapNodes(i, rightChild(i));
+                    swap(i, rightChild(i));
                     organize(rightChild(i));
                 }
             }
@@ -89,8 +85,8 @@ public class Max {
             MaxHeap[++size] = NewNode;
             int currentNode = size;
 
-            while(MaxHeap[currentNode] < MaxHeap[getParent(currentNode)]){
-                swapNodes(currentNode, getParent(currentNode));
+            while(MaxHeap[currentNode] > MaxHeap[getParent(currentNode)]){
+                swap(currentNode, getParent(currentNode));
                 currentNode = getParent(currentNode);
             }
         }
@@ -102,6 +98,12 @@ public class Max {
         int popped = MaxHeap[front];
         MaxHeap[front] = MaxHeap[size--];
         organize(front);
+    }
+
+    public void HeapMaxOrder()  {
+        for (int pos = (size / 2); pos >= 1; pos--) {
+            organize(pos);
+        }
     }
 
     public void printTreeMax()  {

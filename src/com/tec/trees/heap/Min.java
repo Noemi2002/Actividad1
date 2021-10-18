@@ -3,12 +3,12 @@ package com.tec.trees.heap;
 public class Min {
 
     private int[] MinHeap;
-    private int size;
+    private int Heapsize;
     private int maxSize;
 
     public Min(int size){
         this.maxSize = size;
-        this.size = 0;
+        this.Heapsize = 0;
         MinHeap = new int[this.maxSize+1];
         MinHeap[0] = Integer.MIN_VALUE;
 
@@ -16,12 +16,12 @@ public class Min {
 
     //Return if the heap is empty
     private boolean isEmpty(){
-        return (size == 0);
+        return (Heapsize == 0);
     }
 
     //Return heap size
     private int size(){
-        return this.size;
+        return this.Heapsize;
     }
 
     //Return parent position for the node we´re asking for
@@ -29,19 +29,19 @@ public class Min {
         return i / 2;
     }
 
-    //Return left child poition
+    //Return left child position
     private int leftChild(int i){
         return (2*i);
     }
 
-    //Return right child poition
+    //Return right child position
     private int rightChild(int i){
         return (2*i) + 1;
     }
 
     //Checks if it is a leaf
     private boolean isLeaf(int i){
-        if (i >= (size / 2) && i <= size){
+        if (i >= (Heapsize / 2) && i <= Heapsize){
             return true;
         }else{
             return false;
@@ -81,11 +81,11 @@ public class Min {
 
     //Insert
     public void insert(int NewNode){
-        if (size >= maxSize){
+        if (Heapsize >= maxSize){
             System.out.println("The heap is full, can't insert a new node");
         }else{
-            MinHeap[++size] = NewNode;
-            int currentNode = size;
+            MinHeap[++Heapsize] = NewNode;
+            int currentNode = Heapsize;
 
             while(MinHeap[currentNode] < MinHeap[getParent(currentNode)]){
                 swapNodes(currentNode, getParent(currentNode));
@@ -96,7 +96,7 @@ public class Min {
 
     // build min heap
     public void minHeap()  {
-        for (int i = (size / 2); i >= 1; i--) {
+        for (int i = (Heapsize / 2); i >= 1; i--) {
             organize(i);
         }
     }
@@ -105,13 +105,13 @@ public class Min {
     public void remove()  {
         int front = 1;
         int popped = MinHeap[front];
-        MinHeap[front] = MinHeap[size--];
+        MinHeap[front] = MinHeap[Heapsize--];
         organize(front);
     }
 
     public void printTreeMin()  {
         System.out.println("PARENT1" + "\t" + "LEFT1" + "\t" + "RIGHT1");
-        for (int i = 1; i <= size / 2; i++) {
+        for (int i = 1; i <= Heapsize / 2; i++) {
             System.out.print(" " + MinHeap[i] + "\t\t" + MinHeap[2 * i]
                     + "\t\t" + MinHeap[2 * i + 1]);
             System.out.println();

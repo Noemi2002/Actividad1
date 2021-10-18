@@ -64,6 +64,7 @@ public class Main {
         HeapMx.insert(6);
         HeapMx.insert(11);
         HeapMx.insert(3);
+        //HeapMx.HeapMaxOrder();
         HeapMx.printTreeMax();
         //Remove
         System.out.println("Removing root or biggest number:");
