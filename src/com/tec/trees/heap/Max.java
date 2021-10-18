@@ -1,17 +1,16 @@
-package com.tec.trees.extra;
+package com.tec.trees.heap;
 
-public class Min {
+public class Max {
 
-    private int[] MinHeap;
+
+    private int[] MaxHeap;
     private int size;
     private int maxSize;
 
-    public Min(int size){
-        this.size = size;
+    public Max(int size){
+        this.maxSize = size;
         this.size = 0;
-        MinHeap = new int[this.size + 1];
-        MinHeap[0] = Integer.MIN_VALUE;
-
+        MaxHeap = new int[maxSize + 1];
     }
 
     //Return if the heap is empty
@@ -29,22 +28,22 @@ public class Min {
         if (i > 0) { //If the parent is not the root
             return (int) Math.floor((i - 1) / 2);
         } else {
-            return Integer.MIN_VALUE; //return tree root
+            return Integer.MAX_VALUE; //return tree root
         }
     }
 
-    //Return left child poition
+    //Return left child position
     private int leftChild(int i){
-        return (2*i);
+        return (2 * i + 1);
     }
 
-    //Return right child poition
+    //Return right child position
     private int rightChild(int i){
-        return (2*i) + 1;
+        return 2 * i + 2;
     }
 
     //Checks if it is a leaf
-    private boolean isLeaf(int i){
+    private boolean isMaxLeaf(int i){
         if (i >= (size / 2) && i <= size){
             return true;
         }else{
@@ -55,21 +54,20 @@ public class Min {
     //swap nodes from their positions
     private void swapNodes(int one, int two){
         int tmp;
-        tmp = MinHeap[one];
-        MinHeap[one] = MinHeap[two];
-        MinHeap[two] = tmp;
+        tmp = MaxHeap[one];
+        MaxHeap[one] = MaxHeap[two];
+        MaxHeap[two] = tmp;
     }
 
     //Maintain the property order during inserting new numbers
     private void organize(int i)  {
 
         // check if the node is non-leaf and greater than its child
-        if (!isLeaf(i)) {
-            if (MinHeap[i] > MinHeap[leftChild(i)]
-                    || MinHeap[i] > MinHeap[rightChild(i)]) {
+        if (!isMaxLeaf(i)) {
+            if (MaxHeap[i] < MaxHeap[leftChild(i)] || MaxHeap[i] < MaxHeap[rightChild(i)]) {
 
                 // swap with left child and then organize the left child
-                if (MinHeap[leftChild(i)] < MinHeap[rightChild(i)]) {
+                if (MaxHeap[leftChild(i)] > MaxHeap[rightChild(i)]) {
                     swapNodes(i, leftChild(i));
                     organize(leftChild(i));
                 }
@@ -88,10 +86,10 @@ public class Min {
         if (size >= maxSize){
             System.out.println("The heap is full, can't insert a new node");
         }else{
-            MinHeap[++size] = NewNode;
+            MaxHeap[++size] = NewNode;
             int currentNode = size;
 
-            while(MinHeap[currentNode] < MinHeap[getParent(currentNode)]){
+            while(MaxHeap[currentNode] < MaxHeap[getParent(currentNode)]){
                 swapNodes(currentNode, getParent(currentNode));
                 currentNode = getParent(currentNode);
             }
@@ -101,21 +99,17 @@ public class Min {
     //Remove the root (min element)
     public void remove()  {
         int front = 1;
-        int popped = MinHeap[front];
-        MinHeap[front] = MinHeap[size--];
+        int popped = MaxHeap[front];
+        MaxHeap[front] = MaxHeap[size--];
         organize(front);
     }
 
-    public void printTree()  {
-        System.out.println("PARENT" + "\t" + "LEFT" + "\t" + "RIGHT");
+    public void printTreeMax()  {
+        System.out.println("PARENT1" + "\t" + "LEFT1" + "\t" + "RIGHT1");
         for (int i = 1; i <= size / 2; i++) {
-            System.out.print(" " + MinHeap[i] + "\t\t" + MinHeap[2 * i]
-                    + "\t\t" + MinHeap[2 * i + 1]);
+            System.out.print(" " + MaxHeap[i] + "\t\t" + MaxHeap[2 * i]
+                    + "\t\t" + MaxHeap[2 * i + 1]);
             System.out.println();
         }
     }
-
-
-
-
 }
