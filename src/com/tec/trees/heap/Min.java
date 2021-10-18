@@ -110,7 +110,7 @@ public class Min {
     }
 
     public void printTreeMin()  {
-        System.out.println("PARENT1" + "\t" + "LEFT1" + "\t" + "RIGHT1");
+        System.out.println("PARENT" + "\t" + "LEFT" + "\t" + "RIGHT");
         for (int i = 1; i <= Heapsize / 2; i++) {
             System.out.print(" " + MinHeap[i] + "\t\t" + MinHeap[2 * i]
                     + "\t\t" + MinHeap[2 * i + 1]);
