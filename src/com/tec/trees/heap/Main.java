@@ -25,11 +25,12 @@ public class Main {
         minHeap.insert(50);
         minHeap.insert(90);
         minHeap.insert(45);
-        minHeap.minHeap();
+        //minHeap.minHeap();
         //display the min heap contents
-        minHeap.display();
+        minHeap.display2();
         //display root node of the min heap
-        System.out.println("The Min val(root node):" + minHeap.remove());
+        //System.out.println("The Min val(root node):" + minHeap.remove());
+        //minHeap.display();
 
         //Max
         /*ArrayList<Integer> array = new ArrayList<Integer>();

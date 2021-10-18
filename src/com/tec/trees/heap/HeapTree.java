@@ -13,7 +13,7 @@ class BinaryHeap {
         Arrays.fill(heap, -1);
     }
 
-    //is heap empty?
+    //Retorna si está
     public boolean isEmpty(){
         return heapSize==0;
     }

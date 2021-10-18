@@ -89,13 +89,12 @@ public class Min_Heap {
 
     // Function to print the contents of the heap
     public void display()  {
-
-        /*System.out.println("PARENT NODE" + "\t" + "LEFT NODE" + "\t" + "RIGHT NODE");
+        System.out.println("PARENT NODE" + "\t" + "LEFT NODE" + "\t" + "RIGHT NODE");
         for (int i = 1; i <= size / 2; i++) {
             System.out.print(" " + HeapArray[i] + "\t\t" + HeapArray[2 * i]
                     + "\t\t" + HeapArray[2 * i + 1]);
             System.out.println();
-        }*/
+        }
     }
 
     // build min heap
@@ -105,14 +104,25 @@ public class Min_Heap {
         }
     }
 
-    // remove and return the heap elment
+    // remove and return the heap element
     public int remove()  {
         int popped = HeapArray[FRONT];
         HeapArray[FRONT] = HeapArray[size--];
         minHeapify(FRONT);
         return popped;
     }
+
+    // Function to print the contents of the heap
+    public void display2()  {
+        System.out.println("PARENT" + "\t" + "LEFT" + "\t" + "RIGHT");
+        for (int i = 1; i <= size / 2; i++) {
+            System.out.print(" " + HeapArray[i] + "\t\t" + HeapArray[2 * i]
+                    + "\t\t" + HeapArray[2 * i + 1]);
+            System.out.println();
+        }
+    }
 }
+
 
 
 
