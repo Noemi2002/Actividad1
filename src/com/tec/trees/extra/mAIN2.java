@@ -31,8 +31,9 @@ public class mAIN2 {
         maxHeap.remove();
         maxHeap.printTree();
         maxHeap.printTree();
-        //maxHeap.remove();
-        //maxHeap.printTree();
+        System.out.println("Remove");
+        maxHeap.remove();
+        maxHeap.printTree();
 
     }
 }
