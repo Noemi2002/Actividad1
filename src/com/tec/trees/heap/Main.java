@@ -36,7 +36,7 @@ public class Main {
         minHeap.printTreeMin();
 
 
-        //Array_MaxHeap
+        //Prueba del Array_MaxHeap
         ArrayList<Integer> array = new ArrayList<Integer>();
         int size = array.size();
         System.out.println("Array_MaxHeap:");
@@ -70,6 +70,18 @@ public class Main {
         System.out.println("Removing root or biggest number:");
         HeapMx.remove();
         HeapMx.printTreeMax();
+        
+        //Prueba del MaxHeap
+        System.out.println("MaxHeap: ");
+        MaxHeap maxHeap = new MaxHeap(13);
+        maxHeap.insert(4);
+        maxHeap.insert(1);
+        maxHeap.insert(9);
+        maxHeap.insert(2);
+        maxHeap.insert(6);
+        maxHeap.insert(11);
+        maxHeap.insert(3);
+        maxHeap.print();
     }
 
 
